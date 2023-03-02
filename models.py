@@ -21,7 +21,7 @@ class Book(Base):
     ISBN_number = Column(String, nullable=False)
     num_pages = Column(Integer, nullable=False)
     publication_date = Column(String)
-    publisher_id = Column(Integer, ForeignKey("publisher.publisher.id"), default=None)
+    publisher_id = Column(Integer, ForeignKey("publisher.publisher_id"), default=None)
     authors = relationship("Author",
                              secondary=book_author,
                              back_populates="works")

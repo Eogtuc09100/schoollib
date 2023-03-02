@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="library" uuid="530b2c79-c6a3-4636-b500-c89ab989a92e">
+    <data-source source="LOCAL" name="library [2]" uuid="92081621-afe7-4b1e-ad99-f6cfe539f485">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\eogha\Coding\pythonProject4\library.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\Eogtuc0910\OneDrive - Highgate School\_OLD Z DRIVE\Year 12\library\library.sqlite</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
