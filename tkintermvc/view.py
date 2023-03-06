@@ -43,7 +43,18 @@ class View(ttk.Frame):
         :return:
         """
         if self.controller:
-            self.controller.save(self.email_var.get())
+
+            try:
+                self.controller.save(self.email_var.get())
+
+                return self.show_success("Saved")
+
+            except ValueError as error:
+                # show an error message
+
+                self.show_error("Failure")
+
+
 
     def show_error(self, message):
         """
@@ -88,11 +99,9 @@ class App(tk.Tk):
         view = View(self)
         view.grid(row=0, column=0, padx=10, pady=10)
 
-        # create a controller
-        controller = Controller()
 
         # set the controller to view
-        view.set_controller(controller)
+        view.set_controller(Controller())
 
 
 if __name__ == '__main__':
