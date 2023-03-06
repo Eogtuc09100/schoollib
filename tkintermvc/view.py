@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from tkinter import ttk
 from controller import Controller
@@ -21,6 +20,10 @@ class View(ttk.Frame):
         # save button
         self.save_button = ttk.Button(self, text='Save', command=self.save_button_clicked)
         self.save_button.grid(row=1, column=3, padx=10)
+
+        # remove button
+        self.delete_button = ttk.Button(self, text='Delete', command=self.delete_button_clicked)
+        self.delete_button.grid(row=2, column=3, padx=10)
 
         # message
         self.message_label = ttk.Label(self, text='', foreground='red')
@@ -49,11 +52,20 @@ class View(ttk.Frame):
 
                 return self.show_success(f'The email {self.email_var.get()} saved!')
 
-            except ValueError as error:
+            except ValueError:
                 # show an error message
 
                 self.show_error("Failure")
 
+    def delete_button_clicked(self):
+        if self.controller:
+
+            try:
+                self.controller.delete(self.email_var.get())
+                return self.show_success(f'The email {self.email_var.get()} has been deleted')
+
+            except ValueError:
+                self.show_error("Couldn't delete. Email not found.")
 
 
     def show_error(self, message):
@@ -80,6 +92,7 @@ class View(ttk.Frame):
         # reset the form
         self.email_entry['foreground'] = 'black'
         self.email_var.set('')
+
 
     def hide_message(self):
         """
