@@ -21,3 +21,18 @@ class Controller:
         except ValueError as error:
             # show an error message
             raise ValueError(error)
+
+    def delete(self, email):
+        """
+        Save the email
+        :param email:
+        :return:
+        """
+        try:
+            with Session(self.engine) as sess:
+                sess.query(EmailAddress).filter(EmailAddress.email==email).delete()
+                sess.commit()
+
+        except ValueError as error:
+            # show an error message
+            raise ValueError(error)
