@@ -47,7 +47,7 @@ class View(ttk.Frame):
             try:
                 self.controller.save(self.email_var.get())
 
-                return self.show_success(f'The email {self.email_var} saved!')
+                return self.show_success(f'The email {self.email_var.get()} saved!')
 
             except ValueError as error:
                 # show an error message
