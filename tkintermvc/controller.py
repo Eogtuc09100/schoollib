@@ -18,9 +18,6 @@ class Controller:
                 sess.add(email_address)
                 sess.commit()
 
-                return "saved"
-
         except ValueError as error:
             # show an error message
-
             raise ValueError(error)
