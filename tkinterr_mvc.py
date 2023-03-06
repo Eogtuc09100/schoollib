@@ -29,7 +29,7 @@ class Model:
         Save the email into a file
         :return:
         """
-        with open('emails.txt', 'a') as f:
+        with open('tkintermvc/emails.txt', 'a') as f:
             f.write(self.email + '\n')
 
 class View(ttk.Frame):
