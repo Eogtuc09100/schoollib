@@ -13,14 +13,13 @@ class Controller:
         :return:
         """
         try:
+            with Session(self.engine) as sess:
+                email_address = EmailAddress(email=email)
+                sess.add(email_address)
+                sess.commit()
 
-            # save the model
-            self.model.email = email
-            self.model.save()
-
-            # show a success message
-            self.view.show_success(f'The email {email} saved!')
+                return "saved"
 
         except ValueError as error:
             # show an error message
-            self.view.show_error(error)
+            raise ValueError(error)
